@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Conversion Expert</title>
+  
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	
+        <link rel="stylesheet" media="screen" href="css/jquery.mobile-1.0.1.min.css" type="text/css" />
+        <link rel="stylesheet" media="screen" href="master.css" type="text/css" />
+
+        <script type="text/javascript" charset="utf-8" src="cordova-1.6.0.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+       <!-- <script type="text/javascript" charset="utf-8" src="js/custom.js"></script>-->
+        <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.0.1.min.js"></script>
+    <script type="text/javascript">
+	function onBodyLoad()
+	{		
+		document.addEventListener("deviceready", onDeviceReady, false);
+	}
+	
+	function onDeviceReady()
+	{
+		// do your thing!
+		//navigator.notification.alert("Cordova is working")
+	}
+    
+    </script>
+  </head>
+  <body onload="onBodyLoad()">
+      <div data-role="page" data-theme="c">
+          <div data-role="header">
+              <h1 style="text-align:center">Conversion Machine</h1>
+          </div>
+          <div data-role="content">
+              <h1 style="text-align:center">Conversion Machine</h1><p><br/></p>
+              <a href="speed.html" data-role="button" data-ajax="false">Speed</a>
+              <a href="distance.html" data-role="button" data-ajax="false">Length</a>
+              <a href="time.html" data-role="button" data-ajax="false">Time</a>
+          </div>
+      </div>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+* {
+    margin:0;
+    padding:0;
+    border:0;
+    -webkit-user-select: none;  /* prevent copy paste for all elements */
+}
+body{
+    text-align: center;
+}
+.main-menu-links {
+    list-style:none;
+    font-size:16px;
+    margin: 0 auto;
+}
+.main-menu-links li {
+    border: 1px solid #000;
+    padding:10px;
+    margin:10px;
+}
+
+p,h2 {
+    text-align:left;
+}
+
+#result {
+    height:100px;
+    width: 100%;
+}

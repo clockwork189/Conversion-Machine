@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conversion Machine</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	
+        <link rel="stylesheet" media="screen" href="css/jquery.mobile-1.0.1.min.css" type="text/css" />
+        <link rel="stylesheet" media="screen" href="master.css" type="text/css" />
+            <script type="text/javascript" charset="utf-8" src="cordova-1.6.0.js"></script>
+            <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+            <script type="text/javascript" charset="utf-8" src="js/custom.js"></script>
+            <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.0.1.min.js"></script>
+            <script type="text/javascript">
+                function onBodyLoad() {
+                    document.addEventListener("deviceready", onDeviceReady, false);
+                }
+                function onDeviceReady() {
+                    // do your thing!
+                    //navigator.notification.alert("Cordova is working")
+                }
+                
+                </script>
+            </head>
+    <body onload="onBodyLoad()">
+        <div data-role="page" data-theme="c">
+            <div data-role="header">
+                <h1 style="text-align:center">My Converter</h1>
+            </div>
+            <div data-role="content">
+                <h2 style="text-align:center">Convert Length</h2><p><br/></p>
+                From<br/>
+                <input type="text" id="user_input_number" /> 
+                <select id="user_input_start_metric">
+                    <option value="">Select Unit</option>
+                    <option value="Millimeters">Millimeters</option>                    
+                    <option value="Centimeters">Centimeters</option>                    
+                    <option value="Meters">Meters</option>
+                    <option value="Kilometers">Kilometers</option>
+                    <option value="Miles">Miles</option>
+                    <option value="Inches">Inches</option>
+                    <option value="Feet">Feet</option>
+                    <option value="Yards">Yards</option>
+                </select>
+                <p><br/></p>To<br/>
+                <select id="user_input_end_metric">
+                    <option value="">Select Unit</option>
+                    <option value="Millimeters">Millimeters</option>                    
+                    <option value="Centimeters">Centimeters</option>                    
+                    <option value="Meters">Meters</option>
+                    <option value="Kilometers">Kilometers</option>
+                    <option value="Miles">Miles</option>
+                    <option value="Inches">Inches</option>
+                    <option value="Feet">Feet</option>
+                    <option value="Yards">Yards</option>
+                </select>
+                <a href="#" data-role="button" id="calculate">Go</a>
+                <div id="result"></div>
+                <a href="index.html" data-role="button"  data-ajax="false">Back</a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $("#calculate").click(function () {
+                var start_unit = $("select#user_input_start_metric option:selected").val();
+                var start_number = $("#user_input_number").val();
+                var end_unit = $("select#user_input_end_metric option:selected").val();
+                var error = "";
+                var result = "";
+                
+                if (start_unit.length < 1) {
+                    error += "Please Enter a Start Conversion Unit<br/>";
+                }
+                if (start_number.length < 1) {
+                    error += "Please Enter a Starting Number<br/>";
+                }
+                if (isNaN(start_number)) {
+                    error += "Please Enter a valid Number<br/>";
+                }
+                if (end_unit.length < 1) {
+                    error += "Please Enter an End Conversion Unit\n";
+                }
+
+                if (error.length > 1) {
+                    result = error;
+                } else {
+                    if (end_unit == start_unit) {
+                        result = "<div style='font-size:22px; font-weight:700;'>" + start_number + " " + end_unit + "</div>"; ;
+                    } else {
+                        var initial_length = start_unit.split("/")[0];
+                        var final_length = end_unit.split("/")[0];
+
+                        var i_length_multiple = ConvertToMillis(initial_length);
+                        var f_length_multiple = ConvertToMillis(final_length);
+                        
+                        var reduced_i = (i_length_multiple) * start_number;
+                        var reduced_f = (f_length_multiple);
+                        var final_result = reduced_i / reduced_f;
+                        result = "<div style='font-size:22px; font-weight:700;'>" + final_result + " " + end_unit + "</div>";
+                    }
+                }
+                //alert(result);
+                $("#result").html(result);
+            });
+    </script>
+    </body>
+</html>
