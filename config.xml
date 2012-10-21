@@ -2,8 +2,8 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.hackrdojo.conversionMachine"
-        version   = "1.6.0">
-    <name>Hello World</name>
+        version   = "2.1.0">
+    <name>Conversion Machine</name>
 
     <description>
         Ever wondered how may inches are in a meter? How many centimeters in a yard? Tired of going through the frustrating process of converting units the long way? With this simple app, all you do is select what you want to convert (speed, distance, time), then select your starting unit and your end unit and press go. Presto! Thats all!
@@ -15,7 +15,7 @@
 
     <feature name="http://api.phonegap.com/1.0/device" />
 
-    <preference name="phonegap-version" value="1.6.0" />
+    <preference name="phonegap-version" value="2.1.0" />
     <preference name="orientation"      value="default" />
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
